@@ -53,8 +53,8 @@ fetch(url)
         btndel.addEventListener("click", () => {
             fetch(url +`/` + element.id, {
                 method: 'DELETE',
-            });
-            then(res => res.json())
+            })
+            .then(res => res.json())
             .then(data => location.reload())
         })
 

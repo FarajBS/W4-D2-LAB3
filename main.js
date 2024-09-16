@@ -24,11 +24,11 @@ btn.addEventListener("click", () => {
         .then((data) => console.log(data));
 });
 
-btn2.addEventListener("click", () => {
-    fetch(url +"/24", {
-        method: 'DELETE',
-    });
-})
+// .addEventListener("click", () => {
+//     fetch(url +"/24", {
+//         method: 'DELETE',
+//     });
+// })
 
 fetch(url)
 .then((response) => response.json())
@@ -53,6 +53,12 @@ fetch(url)
         divCont.appendChild(name);
         divCont.appendChild(image);
         divCont.appendChild(btndel);
+
+        btndel.addEventListener("click", () => {
+            fetch(url +`/` + element.id, {
+                method: 'DELETE',
+            });
+        })
 
 
         cont.appendChild(divCont);

@@ -21,14 +21,10 @@ btn.addEventListener("click", () => {
         },
       })
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+            location.reload();
+        });
 });
-
-// .addEventListener("click", () => {
-//     fetch(url +"/24", {
-//         method: 'DELETE',
-//     });
-// })
 
 fetch(url)
 .then((response) => response.json())
@@ -58,6 +54,8 @@ fetch(url)
             fetch(url +`/` + element.id, {
                 method: 'DELETE',
             });
+            then(res => res.json())
+            .then(data => location.reload())
         })
 
 

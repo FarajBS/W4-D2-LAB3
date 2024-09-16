@@ -3,14 +3,17 @@ const cont = document.getElementById('container');
 
 let btn = document.getElementById("add");
 let btn2 = document.getElementById("delete");
+let input = document.getElementById("btnAdd");
+let input2 = document.getElementById("src");
+
 
 
 btn.addEventListener("click", () => {
     fetch(url, {
         method: 'POST',
         body: JSON.stringify({
-          name: "Faraj 8",
-          img: 'https://images.unsplash.com/photo-1726224437880-532a54c9565c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzMnx8fGVufDB8fHx8fA%3D%3D'
+          name: input.value,
+          img: input2.value
         }),
 
         headers: {
@@ -21,11 +24,11 @@ btn.addEventListener("click", () => {
         .then((data) => console.log(data));
 });
 
-// img.addEventListener("click", () => {
-//     fetch(url +"/", {
-//         method: 'DELETE',
-//     });
-// })
+btn2.addEventListener("click", () => {
+    fetch(url +"/24", {
+        method: 'DELETE',
+    });
+})
 
 fetch(url)
 .then((response) => response.json())
@@ -44,8 +47,12 @@ fetch(url)
         image.src = element.img;
         // console.log(image);
 
+        let btndel = document.createElement('button');
+        btndel.textContent = "Delete";
+
         divCont.appendChild(name);
         divCont.appendChild(image);
+        divCont.appendChild(btndel);
 
 
         cont.appendChild(divCont);
